@@ -1,5 +1,3 @@
 # Hi, I'm takewell
 
-[![takewell's github stats](https://github-readme-stats.vercel.app/api?username=takewell)](https://github.com/anuraghazra/github-readme-stats)
-
-
+[![takewell's github stats](https://github-readme-stats.vercel.app/api?username=takewell&count_private=true)](https://github.com/anuraghazra/github-readme-stats)
