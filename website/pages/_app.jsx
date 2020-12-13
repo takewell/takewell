@@ -4,7 +4,6 @@ import React, { useCallback, useState, useEffect, useMemo } from "react";
 import { useDomClean } from "lib/useDomClean";
 import { getDNSPrefetchValue } from "lib/data-transform";
 import "../styles/globals.css"
-import "tailwindcss/tailwind.css";
 
 const Application = ({ Component, pageProps }) => {
   const domain = useMemo(() => getDNSPrefetchValue(SITE.domain), []);

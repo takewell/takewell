@@ -39,8 +39,6 @@ const ServiceItem = ({ i, item }) => {
 };
 
 const Index = ({ links, profile }) => {
-  console.log("links", links);
-  console.log({ profile });
   const { introText } = profile;
   return (
     <>
@@ -116,7 +114,6 @@ Index.getInitialProps = async () => {
   const data = await fetch("https://takewell.microcms.io/api/v1/profile", key)
     .then((res) => res.json())
     .catch(() => null);
-  console.log({ data });
   return {
     profile: data,
     links,

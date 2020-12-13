@@ -1,11 +1,11 @@
 {
-  "name": "profile",
+  "name": "takewell",
   "version": "1.0.0",
   "description": "",
   "scripts": {
     "dev": "next -p 3002",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 3002"
   },
   "repository": {
     "type": "git",
