@@ -1,0 +1,37 @@
+{
+  "name": "profile",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "next -p 3002",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takewell/takewell.git"
+  },
+  "keywords": [
+    "takewell",
+    "profile"
+  ],
+  "author": "takewell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/takewell/takewell/issues"
+  },
+  "homepage": "https://github.com/takewell/takewell#readme",
+  "dependencies": {
+    "autoprefixer": "^10.0.4",
+    "next": "latest",
+    "postcss": "^8.1.14",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-import": "^13.0.0",
+    "postcss-nesting": "^7.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-icons": "latest",
+    "tailwindcss": "^2.0.1"
+  }
+}
