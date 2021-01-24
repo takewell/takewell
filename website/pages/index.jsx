@@ -60,7 +60,7 @@ const Index = ({ links, profile }) => {
             </div>
           </div>
           <div className="p-3 tablet:p-2 laptop:p-3">
-            <p className="py-3 text-2xl tablet:text-xl laptop:text-3xl font-semibold">Software engineer</p>
+            <p className="py-3 text-2xl tablet:text-xl laptop:text-3xl font-semibold">Software Engineer</p>
             <p className="py-2 text-lg tablet:text-sm laptop:text-lg font-semibold whitespace-pre-wrap">
               {introText}
             </p>
