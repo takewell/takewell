@@ -1,5 +1,6 @@
 .topScreen {
-  @apply h-screen w-screen bg-gray-50 flex flex-col justify-between;
+  @apply h-screen w-screen flex flex-col justify-between;
+  background-color: #E3E6EC;
   margin-bottom: -72px;
   position: relative;
   z-index: -3;
@@ -7,6 +8,7 @@
 
 .nameCard {
   @apply bg-gray-50 m-auto rounded-xl flex-col block px-10 py-20;
+  background-color: #E3E6EC;
   position: relative;
   width: 320px;
   height: 530px;
@@ -26,12 +28,13 @@
 
 .nameCard::before {
   @apply m-auto rounded-xl border-gray-400 bg-white block;
-  filter: blur(5px);
+  filter: blur(30px);
+  opacity: .5;
   content: " ";
   z-index: -1;
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 40px;
+  right: 40px;
   width: 320px;
   height: 530px;
 
@@ -49,13 +52,14 @@
 }
 
 .nameCard::after {
-  @apply m-auto rounded-xl border-gray-400 bg-gray-300 block;
-  filter: blur(10px);
+  @apply m-auto rounded-xl border-gray-400 block;
+  background-color: #D1D9E6;
+  filter: blur(30px);
   content: " ";
   z-index: -2;
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 40px;
+  left: 40px;
   width: 320px;
   height: 530px;
 
