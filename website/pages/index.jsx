@@ -42,13 +42,13 @@ const Index = ({ links, profile }) => {
               　className="block p-2 mx-auto h-24 laptop:h-36 rounded-full laptop:mx-0 flex-shrink-0"
                 src="/images/takewell_face.jpg"
                 alt="takewell 画像"
-                width={72*2}
-                height={72*2}
+                width={50*2}
+                height={50*2}
               />
             </div>
-            <div className="tablet:p-2 laptop:p-3">
+            <div className="p-2 tablet:p-2 laptop:p-3">
               <p className="text-3xl laptop:text-6xl tablet:text-3xl text-black font-semibold">
-                takewell
+                @takewell
               </p>
               <p className="pl-2 laptop:text-2xl tablet:text-xl text-gray-400 font-semibold">
                 yuya takei
@@ -59,7 +59,7 @@ const Index = ({ links, profile }) => {
             <p className="py-3 text-2xl tablet:text-xl laptop:text-3xl font-semibold">
               Software Engineer
             </p>
-            <p className="py-2 text-lg tablet:text-sm laptop:text-lg font-semibold whitespace-pre-wrap">
+            <p className="py-2 text-base leading-7 tablet:text-sm laptop:text-lg font-semibold whitespace-pre-wrap">
               {introText}
             </p>
           </div>
