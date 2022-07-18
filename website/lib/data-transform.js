@@ -16,7 +16,7 @@
 //   )
 // }
 
-export const getDNSPrefetchValue = (domain: string) => {
+export const getDNSPrefetchValue = domain => {
   if (!domain) return null
   if (domain.startsWith('http')) return domain.replace(/https?:/, '')
   if (domain.startsWith('//')) return domain

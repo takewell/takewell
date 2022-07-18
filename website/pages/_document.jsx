@@ -1,31 +1,18 @@
-import NextDocument, {
-  Html,
-  Head,
-  Main,
-  NextScript,
-  DocumentContext,
-} from 'next/document'
-import { SITE } from '@/data/site'
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import { SITE } from "data/site";
 
-class Document extends NextDocument {
-  static async getInitialProps(ctx: DocumentContext) {
-    const originalRenderPage = ctx.renderPage
-
-    // Run the React rendering logic synchronously
-    ctx.renderPage = () =>
-      originalRenderPage({
-        // Useful for wrapping the whole react tree
-        enhanceApp: (App) => App,
-        // Useful for wrapping in a per-page basis
-        enhanceComponent: (Component) => Component,
-      })
-
-    const initialProps = await NextDocument.getInitialProps(ctx)
+export default class extends Document {
+  static async getInitialProps(ctx) {
+    const initialProps = await Document.getInitialProps(ctx);
 
     return {
       ...initialProps,
-      // styles: [initialProps.styles],
-    }
+      styles: (
+        <>
+          {initialProps.styles}
+        </>
+      ),
+    };
   }
 
   render() {
@@ -65,8 +52,6 @@ class Document extends NextDocument {
           />
         </body>
       </Html>
-    )
+    );
   }
 }
-
-export default Document
