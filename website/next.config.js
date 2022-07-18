@@ -1,4 +1,3 @@
-// require('dotenv').config()
 const {
   MICROCMS_API_KAY
 } = process.env

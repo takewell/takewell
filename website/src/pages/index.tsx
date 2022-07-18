@@ -1,18 +1,45 @@
-import Image from "next/image";
+import Image from 'next/image'
 import {
-  SiAnchor,
+  // SiAnchor,
   SiTwitter,
   SiGithub,
   SiFacebook,
-  SiInstagram,
-} from "react-icons/si";
-import { GoMail } from "react-icons/go";
-import s from "../styles/index.module.css";
+} from 'react-icons/si'
+import { GoMail } from 'react-icons/go'
+// import s from '../styles/index.module.css'
 
-const ServiceItem = ({ i, item }) => {
+const LINKS = [
+  {
+    href: 'mailto:takewell.dev@gmail.com',
+  },
+  {
+    href: 'https://github.com/takewell',
+  },
+  {
+    href: 'https://twitter.com/takewell_',
+  },
+  {
+    href: 'https://www.facebook.com/profile.php?id=100009877623537',
+  },
+  {
+    href: 'https://zenn.dev/takewell',
+  },
+] as const
+
+type Profile = {
+  introText: string
+}
+
+const ServiceItem = ({
+  i,
+  item,
+}: {
+  i: number
+  item: typeof LINKS[number]
+}) => {
   return (
     <>
-      <a className={s.service} href={item.href} target="_blank" key={i}>
+      <a href={item.href} target="_blank" key={i}>
         {i === 0 && <GoMail size={28} color="black" />}
         {i === 1 && <SiGithub size={28} color="black" />}
         {i === 2 && <SiTwitter size={28} color="#1DA1F2" />}
@@ -21,29 +48,30 @@ const ServiceItem = ({ i, item }) => {
           <>
             <img
               src="images/zenn.png"
-              style={{ width: "28px", height: "28px" }}
+              style={{ width: '28px', height: '28px' }}
             />
           </>
         )}
       </a>
     </>
-  );
-};
+  )
+}
 
-const Index = ({ links, profile }) => {
-  const { introText } = profile;
+const Index = ({ profile }: { profile: Profile }) => {
+  const { introText } = profile
+
   return (
     <>
-      <div className={s.topScreen}>
-        <div className={s.nameCard}>
+      <div>
+        <div>
           <div className="flex items-center">
             <div className="tablet:p-2 laptop:p-3">
               <Image
-              　className="block p-2 mx-auto h-24 laptop:h-36 rounded-full laptop:mx-0 flex-shrink-0"
+                className="block p-2 mx-auto h-24 laptop:h-36 rounded-full laptop:mx-0 flex-shrink-0"
                 src="/images/takewell_face.jpg"
                 alt="takewell 画像"
-                width={50*2}
-                height={50*2}
+                width={100}
+                height={100}
               />
             </div>
             <div className="p-2 tablet:p-2 laptop:p-3">
@@ -65,45 +93,32 @@ const Index = ({ links, profile }) => {
           </div>
         </div>
       </div>
-      <nav className={s.serviceItem}>
-        <div className={s.serviceContainer}>
-          {links.map((item, i) => (
+      <nav>
+        <div>
+          {LINKS.map((item, i) => (
             <ServiceItem i={i} item={item} key={i} />
           ))}
         </div>
       </nav>
     </>
-  );
-};
+  )
+}
 
 Index.getInitialProps = async () => {
+  if (!process.env.MICROCMS_API_KAY) {
+    console.warn('not set MICRbOCMS_API_KAY')
+    return
+  }
+
   const key = {
-    headers: { "X-API-KEY": process.env.MICROCMS_API_KAY },
-  };
-  const links = [
-    {
-      href: "mailto:takewell.dev@gmail.com",
-    },
-    {
-      href: "https://github.com/takewell",
-    },
-    {
-      href: "https://twitter.com/takewell_",
-    },
-    {
-      href: "https://www.facebook.com/profile.php?id=100009877623537",
-    },
-    {
-      href: "https://zenn.dev/takewell",
-    }
-  ];
-  const data = await fetch("https://takewell.microcms.io/api/v1/profile", key)
+    headers: { 'X-API-KEY': process.env.MICROCMS_API_KAY },
+  }
+  const data = await fetch('https://takewell.microcms.io/api/v1/profile', key)
     .then((res) => res.json())
-    .catch(() => null);
+    .catch(() => null)
   return {
     profile: data,
-    links,
-  };
-};
+  }
+}
 
-export default Index;
+export default Index

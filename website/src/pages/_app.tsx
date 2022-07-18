@@ -1,25 +1,28 @@
-import Head from "next/head";
-import { SITE } from "data/site";
-import React, { useCallback, useState, useEffect, useMemo } from "react";
-import { useDomClean } from "lib/useDomClean";
-import { getDNSPrefetchValue } from "lib/data-transform";
-import "../styles/globals.css"
+import Head from 'next/head'
+import React, { useMemo } from 'react'
 
-const Application = ({ Component, pageProps }) => {
-  const domain = useMemo(() => getDNSPrefetchValue(SITE.domain), []);
+import { SITE } from '@/data/site'
+import { useDomClean } from '@/lib/useDomClean'
+import { getDNSPrefetchValue } from '@/lib/data-transform'
 
-  useEffect(() => {
-    if (typeof localStorage !== "object") return null;
-    const themeType = localStorage.getItem("theme") || null;
-  }, []);
-  useEffect(() => localStorage.setItem("theme", null), [null]);
-  useDomClean();
+import type { NextPage } from 'next'
+import type { AppProps } from 'next/app'
+
+// import '../styles/globals.css'
+
+type Props = AppProps & {
+  Component: NextPage
+}
+
+const App = ({ Component, pageProps }: Props) => {
+  const domain = useMemo(() => getDNSPrefetchValue(SITE.domain), [])
+  useDomClean()
+
   return (
     <>
       <Head>
         <title>{SITE.title}</title>
         {domain && <link rel="dns-prefetch" href={domain} />}
-        <meta name="google" value="notranslate" />
         <meta name="referrer" content="strict-origin" />
         <meta name="description" content={SITE.description} />
         <meta property="og:site_name" content={SITE.title} />
@@ -28,7 +31,7 @@ const Application = ({ Component, pageProps }) => {
         <meta name="generator" content="takewell.dev" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="author" content={SITE.author} />
-        <meta name="twitter:creator" content={`@${SITE.twitter}`} />
+        <meta name="twitter:creator" content={`@${SITE.twitterUserName}`} />
         <meta property="og:title" content={SITE.title} />
         <meta property="og:url" content={SITE.domain} />
         <meta
@@ -51,7 +54,7 @@ const Application = ({ Component, pageProps }) => {
       </Head>
       <Component {...pageProps} />
     </>
-  );
-};
+  )
+}
 
-export default Application;
+export default App
