@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { SITE } from "data/site";
-import React, { useCallback, useState, useEffect, useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useDomClean } from "lib/useDomClean";
 import { getDNSPrefetchValue } from "lib/data-transform";
-import "../styles/globals.css"
+import "../styles/globals.css";
 
 const Application = ({ Component, pageProps }) => {
   const domain = useMemo(() => getDNSPrefetchValue(SITE.domain), []);

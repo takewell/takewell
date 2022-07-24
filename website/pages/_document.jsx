@@ -7,11 +7,7 @@ export default class extends Document {
 
     return {
       ...initialProps,
-      styles: (
-        <>
-          {initialProps.styles}
-        </>
-      ),
+      styles: <>{initialProps.styles}</>,
     };
   }
 

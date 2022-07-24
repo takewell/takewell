@@ -39,11 +39,11 @@ const Index = ({ links, profile }) => {
           <div className="flex items-center">
             <div className="tablet:p-2 laptop:p-3">
               <Image
-              　className="block p-2 mx-auto h-24 laptop:h-36 rounded-full laptop:mx-0 flex-shrink-0"
+                className="block p-2 mx-auto h-24 laptop:h-36 rounded-full laptop:mx-0 flex-shrink-0"
                 src="/images/takewell_face.jpg"
                 alt="takewell 画像"
-                width={50*2}
-                height={50*2}
+                width={50 * 2}
+                height={50 * 2}
               />
             </div>
             <div className="p-2 tablet:p-2 laptop:p-3">
@@ -56,9 +56,9 @@ const Index = ({ links, profile }) => {
             </div>
           </div>
           <div className="p-3 tablet:p-2 laptop:p-3">
-            <p className="py-3 text-2xl tablet:text-xl laptop:text-3xl font-semibold">
+            {/* <p className="py-3 text-2xl tablet:text-xl laptop:text-3xl font-semibold">
               Software Engineer
-            </p>
+            </p> */}
             <p className="py-2 text-base leading-7 tablet:text-sm laptop:text-lg font-semibold whitespace-pre-wrap">
               {introText}
             </p>
@@ -95,7 +95,7 @@ Index.getInitialProps = async () => {
     },
     {
       href: "https://zenn.dev/takewell",
-    }
+    },
   ];
   const data = await fetch("https://takewell.microcms.io/api/v1/profile", key)
     .then((res) => res.json())
