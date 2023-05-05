@@ -37,15 +37,6 @@ const Index = ({ links, profile }) => {
       <div className={s.topScreen}>
         <div className={s.nameCard}>
           <div className="flex items-center">
-            <div className="tablet:p-2 laptop:p-3">
-              <Image
-                className="block p-2 mx-auto h-24 laptop:h-36 rounded-full laptop:mx-0 flex-shrink-0"
-                src="/images/takewell_face.jpg"
-                alt="takewell 画像"
-                width={50 * 2}
-                height={50 * 2}
-              />
-            </div>
             <div className="p-2 tablet:p-2 laptop:p-3">
               <p className="text-3xl laptop:text-6xl tablet:text-3xl text-black font-semibold">
                 @takewell
