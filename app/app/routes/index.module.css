@@ -1,0 +1,107 @@
+.topScreen {
+  @apply h-screen w-screen flex flex-col justify-between;
+  background-color: #E3E6EC;
+  margin-bottom: -72px;
+  position: fixed;
+  z-index: -3;
+}
+
+.card {
+  @apply bg-gray-50 m-auto rounded-xl flex-col block px-6 py-20;
+  background-color: #E3E6EC;
+  position: relative;
+  width: 320px;
+  height: 530px;
+
+  @screen tablet {
+    width: 606px;
+    height: 340px;
+    padding: 34px;
+  }
+
+  @screen laptop {
+    width: 910px;
+    height: 550px;
+    padding: 55px;
+  }
+
+  @screen desktop {
+    width: 1200px; 
+    height: 700px;
+    padding: 70px;
+  }
+}
+
+.card::before {
+  @apply m-auto rounded-xl border-gray-400 bg-white block;
+  filter: blur(30px);
+  opacity: .5;
+  content: " ";
+  z-index: -1;
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  width: 320px;
+  height: 530px;
+  pointer-events: none;
+
+  @screen tablet {
+    width: 606px;
+    height: 340px;
+    padding: 34px;
+  }
+
+  @screen laptop {
+    width: 910px;
+    height: 550px;
+    padding: 55px;
+  }
+
+  @screen desktop {
+    width: 1200px; 
+    height: 700px;
+    padding: 70px;
+  }
+}
+
+.card::after {
+  @apply m-auto rounded-xl border-gray-400 block;
+  background-color: #D1D9E6;
+  filter: blur(30px);
+  content: " ";
+  z-index: -2;
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 320px;
+  height: 530px;
+  pointer-events: none;
+
+  @screen tablet {
+    width: 606px;
+    height: 340px;
+    padding: 34px;
+  }
+
+  @screen laptop {
+    width: 910px;
+    height: 550px;
+    padding: 55px;
+  }
+
+  @screen desktop {
+    width: 1200px; 
+    height: 700px;
+    padding: 70px;
+  }
+}
+
+.serviceItem {
+  @apply flex;
+  z-index: 1;
+}
+
+.serviceContainer {
+  @apply flex justify-items-center mx-auto p-4;
+}
+

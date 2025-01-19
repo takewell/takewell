@@ -1,4 +1,3 @@
-import type { LinksFunction } from "@remix-run/cloudflare";
 import {
   Links,
   Meta,
@@ -9,28 +8,52 @@ import {
 
 import "./tailwind.css";
 
-export const links: LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  },
-];
+import { SITE } from "@/constants/site";
 
-export function Layout({ children }: { children: React.ReactNode }) {
+type LayoutProps = {
+  children: React.ReactNode;
+};
+
+const Head = () => (
+  <head>
+    <meta charSet="utf-8" />
+    <meta name="referrer" content="strict-origin" />
+    <meta name="google" content="notranslate" />
+    <meta name="description" content={SITE.description} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:description" content={SITE.description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="author" content={SITE.author} />
+    <meta name="twitter:creator" content={`@${SITE.x}`} />
+    <meta property="og:title" content={SITE.title} />
+    <meta property="og:url" content={SITE.domain} />
+    {/* <meta
+      property="og:image"
+      content={`https:${domain}/assets/og-main.png`}
+    />
+    <meta
+      property="twitter:image"
+      content={`https:${domain}/assets/og-main.png`}
+    />
+    <meta
+      itemProp="image"
+      property="og:image"
+      content={`https:${domain}/assets/og-main.png`}
+    /> */}
+    <meta
+      name="viewport"
+      content="initial-scale=1, maximum-scale=5, minimum-scale=1, viewport-fit=cover"
+    />
+    <Meta />
+    <Links />
+  </head>
+);
+
+export function Layout({ children }: LayoutProps) {
   return (
-    <html lang="en">
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <Meta />
-        <Links />
-      </head>
+    <html lang="ja">
+      <Head />
       <body>
         {children}
         <ScrollRestoration />

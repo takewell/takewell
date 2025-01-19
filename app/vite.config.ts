@@ -3,6 +3,7 @@ import {
   cloudflareDevProxyVitePlugin as remixCloudflareDevProxy,
 } from "@remix-run/dev";
 import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 declare module "@remix-run/cloudflare" {
@@ -24,5 +25,12 @@ export default defineConfig({
       },
     }),
     tsconfigPaths(),
+    react(),
   ],
+  optimizeDeps: {
+    include: ["lucide-react"],
+  },
+  ssr: {
+    noExternal: ["lucide-react"]
+  },
 });
